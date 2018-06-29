@@ -405,6 +405,7 @@ if __name__ == '__main__':
                                                                               'Only used when training ESPNet')
     parser.add_argument('--p', default=2, type=int, help='depth multiplier')
     parser.add_argument('--q', default=8, type=int, help='depth multiplier')
+    parser.add_argument('--resumeLoc', default='./results_enc_/checkpoint.pth.tar', help='checkpoint to resume from')
 
     trainValidateSegmentation(parser.parse_args())
 
