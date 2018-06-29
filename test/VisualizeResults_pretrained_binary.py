@@ -37,25 +37,25 @@ def relabel(img):
     :param img:
     :return:
     '''
-    img[img == 19] = 0
-    img[img == 18] = 0
-    img[img == 17] = 0
-    img[img == 16] = 0
-    img[img == 15] = 0
-    img[img == 14] = 0
-    img[img == 13] = 0
-    img[img == 12] = 0
-    img[img == 11] = 0
-    img[img == 10] = 0
-    img[img == 9] = 0
-    img[img == 8] = 0
-    img[img == 7] = 0
-    img[img == 6] = 0
-    img[img == 5] = 0
-    img[img == 4] = 0
-    img[img == 3] = 0
-    img[img == 2] = 0
-    img[img == 1] = 0
+    img[img == 19] = 255
+    img[img == 18] = 255
+    img[img == 17] = 255
+    img[img == 16] = 255
+    img[img == 15] = 255
+    img[img == 14] = 255
+    img[img == 13] = 255
+    img[img == 12] = 255
+    img[img == 11] = 255
+    img[img == 10] = 255
+    img[img == 9] = 255
+    img[img == 8] = 255
+    img[img == 7] = 255
+    img[img == 6] = 255
+    img[img == 5] = 255
+    img[img == 4] = 255
+    img[img == 3] = 255
+    img[img == 2] = 255
+    img[img == 1] = 255
     img[img == 0] = 7
     img[img == 255] = 0
     return img
