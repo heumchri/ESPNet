@@ -394,7 +394,7 @@ if __name__ == '__main__':
     parser.add_argument('--step_loss', type=int, default=100, help='Decrease learning rate after how many epochs.')
     parser.add_argument('--lr', type=float, default=5e-4, help='Initial learning rate')
     parser.add_argument('--savedir', default='./results_enc_', help='directory to save the results')
-    parser.add_argument('--visualizeNet', type=bool, default=True, help='If you want to visualize the model structure')
+    parser.add_argument('--visualizeNet', type=bool, default=False, help='If you want to visualize the model structure')
     parser.add_argument('--resume', type=bool, default=False, help='Use this flag to load last checkpoint for training')  #
     parser.add_argument('--classes', type=int, default=20, help='No of classes in the dataset. 20 for cityscapes')
     parser.add_argument('--cached_data_file', default='city.p', help='Cached file name')
