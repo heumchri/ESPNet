@@ -85,8 +85,7 @@ def evaluateModel(args, model, up, image_list):
             img_variable = img_variable.cuda()
         img_out = model(img_variable)
 
-        if args.modelType == 2:
-            img_out = up(img_out)
+        img_out = up(img_out)
 
         classMap_numpy = img_out[0].max(0)[1].byte().cpu().data.numpy()
 
@@ -112,9 +111,13 @@ def main(args):
 
     up = None
     if args.modelType == 2:
-        up = torch.nn.Upsample(scale_factor=8, mode='bilinear')
+        up = torch.nn.Upsample(scale_factor=16, mode='bilinear')
         if args.gpu:
             up = up.cuda()
+    else:
+        up = torch.nn.Upsample(scale_factor=2, mode='bilinear')
+        if args.gpu:
+            up = up.cuda() 
 
     p = args.p
     q = args.q
