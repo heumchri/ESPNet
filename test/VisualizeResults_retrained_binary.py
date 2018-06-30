@@ -103,7 +103,7 @@ def main(args):
 
     p = args.p
     q = args.q
-    classes = 20
+    classes = args.classes
     if args.modelType == 2:
         modelA = Net.ESPNet_Encoder(classes, p, q)  # Net.Mobile_SegNetDilatedIA_C_stage1(20)
         model_weight_file = args.weightsDir + os.sep + 'encoder' + os.sep + 'espnet_p_' + str(p) + '_q_' + str(
@@ -154,5 +154,6 @@ if __name__ == '__main__':
                                                                        'original label ids')
     parser.add_argument('--colored', default=True, type=bool, help='If you want to visualize the '
                                                                    'segmentation masks in color')
+    parser.add_argument('--classes', default=20, type=int, help='number of classes')
 
     main(parser.parse_args())
