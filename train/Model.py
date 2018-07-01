@@ -339,7 +339,10 @@ class ESPNet(nn.Module):
         self.conv = CBR(19 + classes, classes, 3, 1)
 
         self.up_l3 = nn.Sequential(nn.ConvTranspose2d(classes, classes, 2, stride=2, padding=0, output_padding=0, bias=False))
-        self.combine_l2_l3 = nn.Sequential(BR(2*classes), DilatedParllelResidualBlockB(2*classes , classes, add=False))
+        if classes >= 5:
+            self.combine_l2_l3 = nn.Sequential(BR(2*classes), DilatedParllelResidualBlockB(2*classes , classes, add=False))
+        else:
+            self.combine_l2_l3 = nn.Sequential(BR(2*classes), CBR(2*classes, classes, 3, 1))#DilatedParllelResidualBlockB(2*classes , classes, add=False))
 
         self.up_l2 = nn.Sequential(nn.ConvTranspose2d(classes, classes, 2, stride=2, padding=0, output_padding=0, bias=False), BR(classes))
 
