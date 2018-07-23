@@ -85,5 +85,7 @@ if __name__ == '__main__':
     parser.add_argument('--classes', default=2, type=int, help='number of classes')
     parser.add_argument('--weightsDir', default='../pretrained/', help='Pretrained weights directory.')
     parser.add_argument('--modelType', type=int, default=1, help='1=ESPNet, 2=ESPNet-C')
+    parser.add_argument('--p', default=2, type=int, help='depth multiplier. Supported only 2')
+    parser.add_argument('--q', default=8, type=int, help='depth multiplier. Supported only 3, 5, 8')
 
     main(parser.parse_args())
