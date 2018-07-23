@@ -20,6 +20,8 @@ cudnn.benchmark = True
 
 def main(args):
     classes = args.classes
+    p = args.p
+    q = args.q
     if args.modelType == 2:
         model = Net.ESPNet_Encoder(classes, p, q)  # Net.Mobile_SegNetDilatedIA_C_stage1(20)
         model_weight_file = args.weightsDir + os.sep + 'encoder' + os.sep + 'espnet_p_' + str(p) + '_q_' + str(
