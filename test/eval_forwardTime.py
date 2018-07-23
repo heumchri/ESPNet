@@ -47,7 +47,7 @@ def main(args):
     model.eval()
 
 
-    images = torch.randn(args.height, args.width, args.num_channels, args.batch_size)
+    images = torch.randn(args.batch_size, args.num_channels, args.height, args.width)
 
     if (not args.cpu):
         images = images.cuda()#.half()
