@@ -19,7 +19,7 @@ import torch.backends.cudnn as cudnn
 cudnn.benchmark = True
 
 def main(args):
-	classes = args.classes
+    classes = args.classes
     if args.modelType == 2:
         model = Net.ESPNet_Encoder(classes, p, q)  # Net.Mobile_SegNetDilatedIA_C_stage1(20)
         model_weight_file = args.weightsDir + os.sep + 'encoder' + os.sep + 'espnet_p_' + str(p) + '_q_' + str(
@@ -39,7 +39,7 @@ def main(args):
         print('Model not supported')
 
     if (not args.cpu):
-        model = model.cuda()#.half()	#HALF seems to be doing slower for some reason
+        model = model.cuda()#.half()    #HALF seems to be doing slower for some reason
     #model = torch.nn.DataParallel(model).cuda()
 
     model.eval()
@@ -82,8 +82,8 @@ if __name__ == '__main__':
     parser.add_argument('--num-channels', type=int, default=3)
     parser.add_argument('--batch-size', type=int, default=1)
     parser.add_argument('--cpu', action='store_true')
-	parser.add_argument('--classes', default=2, type=int, help='number of classes')
-	parser.add_argument('--weightsDir', default='../pretrained/', help='Pretrained weights directory.')
-	parser.add_argument('--modelType', type=int, default=1, help='1=ESPNet, 2=ESPNet-C')
+    parser.add_argument('--classes', default=2, type=int, help='number of classes')
+    parser.add_argument('--weightsDir', default='../pretrained/', help='Pretrained weights directory.')
+    parser.add_argument('--modelType', type=int, default=1, help='1=ESPNet, 2=ESPNet-C')
 
     main(parser.parse_args())
