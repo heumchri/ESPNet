@@ -336,7 +336,7 @@ class ESPNet(nn.Module):
         # light-weight decoder
         self.level3_C = C(128 + 3, classes, 1, 1)
         self.br = nn.BatchNorm2d(classes, eps=1e-03)
-        self.conv = CBR(19 + classes, classes, 3, 1)
+        self.conv = CBR(16 + classes, classes, 3, 1)
 
         self.up_l3 = nn.Sequential(nn.ConvTranspose2d(classes, classes, 2, stride=2, padding=0, output_padding=0, bias=False))
         if classes >= 5:
@@ -382,7 +382,7 @@ class ESPNet(nn.Module):
         output1_C = self.level3_C(output1_cat) # project to C-dimensional space
         comb_l2_l3 = self.up_l2(self.combine_l2_l3(torch.cat([output1_C, output2_c], 1))) #RUM
 
-        concat_features = self.conv(torch.cat([comb_l2_l3, output0_cat], 1))
+        concat_features = self.conv(torch.cat([comb_l2_l3, output0], 1))
 
         classifier = self.classifier(concat_features)
         return classifier
