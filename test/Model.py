@@ -382,7 +382,7 @@ class ESPNet(nn.Module):
         output1_C = self.level3_C(output1_cat) # project to C-dimensional space
         comb_l2_l3 = self.up_l2(self.combine_l2_l3(torch.cat([output1_C, output2_c], 1))) #RUM
 
-        concat_features = self.conv(torch.cat([comb_l2_l3, output0], 1))
+        concat_features = self.conv(torch.cat([comb_l2_l3, output0_cat], 1))
 
         classifier = self.classifier(concat_features)
         return classifier
