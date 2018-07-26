@@ -101,7 +101,7 @@ def evaluateModel(args, model, up, image_list):
         name = imgName.split('/')[-1]
 
         if args.colored:
-            classMap_numpy_color = np.zeros((img_out.shape[0], img_out.shape[1], img_out.shape[2]), dtype=np.uint8)
+            classMap_numpy_color = np.zeros((img_out.shape[2], img_out.shape[3], img_out.shape[1]), dtype=np.uint8)
             for idx in range(len(pallete)):
                 [r, g, b] = pallete[idx]
                 classMap_numpy_color[classMap_numpy == idx] = [b, g, r]
