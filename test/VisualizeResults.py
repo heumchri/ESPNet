@@ -79,8 +79,8 @@ def evaluateModel(args, model, up, image_list):
 
         # resize the image to 1024x512x3
         img = cv2.resize(img, (1024, 512))
-        if args.overlay:
-            img_orig = cv2.resize(img_orig, (1024, 512))
+        #if args.overlay:
+        #    img_orig = cv2.resize(img_orig, (1024, 512))
 
         img /= 255
         img = img.transpose((2, 0, 1))
@@ -101,7 +101,7 @@ def evaluateModel(args, model, up, image_list):
         name = imgName.split('/')[-1]
 
         if args.colored:
-            classMap_numpy_color = np.zeros((img_out.shape[2], img_out.shape[3], img_out.shape[1]), dtype=np.uint8)
+            classMap_numpy_color = np.zeros((img_orig.shape[0], img_orig.shape[1], img_orig.shape[2]), dtype=np.uint8)
             for idx in range(len(pallete)):
                 [r, g, b] = pallete[idx]
                 classMap_numpy_color[classMap_numpy == idx] = [b, g, r]
