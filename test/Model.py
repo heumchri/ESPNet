@@ -336,7 +336,7 @@ class ESPNet(nn.Module):
         # light-weight decoder
         self.level3_C = C(128 + 3, classes, 1, 1)
         self.br = nn.BatchNorm2d(classes, eps=1e-03)
-        self.conv = CBR(16 + classes, classes, 3, 1)
+        self.conv = CBR(19 + classes, classes, 3, 1)
 
         self.up_l3 = nn.Sequential(nn.ConvTranspose2d(classes, classes, 2, stride=2, padding=0, output_padding=0, bias=False))
         if classes >= 5:
