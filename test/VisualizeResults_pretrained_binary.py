@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import glob
 import cv2
 from PIL import Image as PILImage
-import Model as Net
+import Model2 as Net
 import os
 import time
 from argparse import ArgumentParser
