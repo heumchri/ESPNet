@@ -9,7 +9,7 @@ import os
 import time
 from argparse import ArgumentParser
 
-pallete = [[128, 64, 128],
+pallete = [[0, 255, 0],
            [0, 0, 0]]
 
 
