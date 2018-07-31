@@ -70,7 +70,11 @@ def evaluateModel(args, model, up, image_list):
                 classMap_numpy_color[classMap_numpy == idx] = [b, g, r]
             cv2.imwrite(args.savedir + os.sep + 'c_' + name.replace(args.img_extn, 'png'), classMap_numpy_color)
             if args.overlay:
-                overlayed = cv2.addWeighted(img_orig, 0.5, classMap_numpy_color, 0.5, 0)
+                output_grey = cv2.cvtColor(img_out,cv2.COLOR_BGR2GRAY)
+                ret, mask = cv2.threshold(output_grey, 0, 255, cv2.THRESH_BINARY_INV)
+                orig_masked = cv2.bitwise_or(img_orig, img_orig, mask=mask)
+                orig_colored = dst = cv2.add(classMap_numpy_color,orig_masked)
+                overlayed = cv2.addWeighted(orig_colored, 0.5, img_orig, 0.5, 0)
                 cv2.imwrite(args.savedir + os.sep + 'over_' + name.replace(args.img_extn, 'jpg'), overlayed)
 
         if args.cityFormat:
