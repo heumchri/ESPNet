@@ -42,7 +42,6 @@ def evaluateModel(args, model, up, image_list):
 
         # resize the image to 1024x512x3
         img = cv2.resize(img, (1024, 512))
-        img_orig = cv2.resize(img_orig, (2048, 1024))
 
         img /= 255
         img = img.transpose((2, 0, 1))
@@ -56,6 +55,8 @@ def evaluateModel(args, model, up, image_list):
         img_out = up(img_out)
 
         classMap_numpy = img_out[0].max(0)[1].byte().cpu().data.numpy()
+  
+        img = cv2.resize(img, (img_orig.shape[0], img_orig.shape[1]))
 
         if i % 100 == 0:
             print(i)
