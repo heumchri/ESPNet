@@ -56,7 +56,7 @@ def evaluateModel(args, model, up, image_list):
 
         classMap_numpy = img_out[0].max(0)[1].byte().cpu().data.numpy()
   
-        img = cv2.resize(img, (img_orig.shape[0], img_orig.shape[1]))
+        classMap_numpy = cv2.resize(classMap_numpy, (img_orig.shape[0], img_orig.shape[1]), interpolation = 0)
 
         if i % 100 == 0:
             print(i)
