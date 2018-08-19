@@ -42,8 +42,7 @@ def evaluateModel(args, model, up, image_list):
 
         # resize the image to 1024x512x3
         img = cv2.resize(img, (1024, 512))
-        #if args.overlay:
-        #    img_orig = cv2.resize(img_orig, (1024, 512))
+        img_orig = cv2.resize(img_orig, (2048, 1024))
 
         img /= 255
         img = img.transpose((2, 0, 1))
