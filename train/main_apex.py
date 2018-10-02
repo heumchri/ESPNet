@@ -217,7 +217,7 @@ def trainValidateSegmentation(args):
 
     trainDataset_scale1 = myTransforms.Compose([
         myTransforms.Normalize(mean=data['mean'], std=data['std']),
-        myTransforms.Scale(2052, 1644), # 1536, 768
+        myTransforms.Scale(2048, 1640), # 1536, 768
         myTransforms.RandomCropResize(100),
         myTransforms.RandomFlip(),
         #myTransforms.RandomCrop(64),
@@ -227,7 +227,7 @@ def trainValidateSegmentation(args):
 
     trainDataset_scale2 = myTransforms.Compose([
         myTransforms.Normalize(mean=data['mean'], std=data['std']),
-        myTransforms.Scale(1710, 1370), # 1536, 768
+        myTransforms.Scale(1712, 1368), # 1536, 768
         myTransforms.RandomCropResize(100),
         myTransforms.RandomFlip(),
         #myTransforms.RandomCrop(64),
@@ -237,7 +237,7 @@ def trainValidateSegmentation(args):
 
     trainDataset_scale3 = myTransforms.Compose([
         myTransforms.Normalize(mean=data['mean'], std=data['std']),
-        myTransforms.Scale(1026, 822),
+        myTransforms.Scale(1024, 824),
         myTransforms.RandomCropResize(32),
         myTransforms.RandomFlip(),
         #myTransforms.RandomCrop(64),
@@ -247,7 +247,7 @@ def trainValidateSegmentation(args):
 
     trainDataset_scale4 = myTransforms.Compose([
         myTransforms.Normalize(mean=data['mean'], std=data['std']),
-        myTransforms.Scale(1368/2, 1096/2),
+        myTransforms.Scale(680, 544),
         #myTransforms.RandomCropResize(20),
         myTransforms.RandomFlip(),
         #myTransforms.RandomCrop(64).
